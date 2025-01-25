@@ -1,5 +1,5 @@
 "use client";
-import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -16,8 +16,9 @@ export function ManageDialog({
   ipsFilterEnabled
 }) {
   return (
-    (<Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-sm p-0 bg-[#1C1C1C] border-0">
+        <DialogTitle className="sr-only">Manage Entries and Winners</DialogTitle>
         <div className="relative h-[600px] flex flex-col">
           <Tabs defaultValue="entries" className="flex-1">
             <div className="flex items-center px-4 py-3 border-b border-gray-800">
@@ -96,7 +97,6 @@ export function ManageDialog({
           </div>
         </div>
       </DialogContent>
-    </Dialog>)
+    </Dialog>
   );
 }
-
