@@ -76,7 +76,7 @@ export function SettingsPanel({
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <Label htmlFor="ips-filter" className="text-white">
-            Filter IPS
+            Grandprize Mode
           </Label>
           <Switch
             id="ips-filter"
