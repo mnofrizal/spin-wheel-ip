@@ -1,4 +1,6 @@
-import { useCallback, useRef } from "react";
+"use client";
+
+import { useCallback, useRef, useState, useEffect } from "react";
 
 export const useWheelAnimation = (
   controls,
@@ -6,8 +8,13 @@ export const useWheelAnimation = (
   names,
   ipsFilterEnabled
 ) => {
-  const audioRef = useRef(new Audio("/applause.mp3")); // For winner sound
-  const tingRef = useRef(new Audio("/ting.mp3")); // For passing names sound
+  const audioRef = useRef(null);
+  const tingRef = useRef(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio("/applause.mp3"); // For winner sound
+    tingRef.current = new Audio("/ting.mp3"); // For passing names sound
+  }, []);
   const lastNamePassedRef = useRef(-1);
   const spinWheel = useCallback(
     async (targetIndex = null) => {
